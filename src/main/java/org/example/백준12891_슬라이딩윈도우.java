@@ -5,15 +5,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class NO9_DNA비밀번호 {
+public class 백준12891_슬라이딩윈도우 {
     static int checkArr[];
     static int myArr[];
     static int checkSame;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int S = Integer.parseInt(st.nextToken());
-        int P = Integer.parseInt(st.nextToken());
+        int S = Integer.parseInt(st.nextToken()); //전체 문자열 길이
+        int P = Integer.parseInt(st.nextToken()); // 부분 문자열 길이
         int result = 0;
         checkArr = new int[4]; // 부분 문자열 배열
         myArr = new int[4]; // 현재 내 배열
@@ -33,7 +33,7 @@ public class NO9_DNA비밀번호 {
         //슬라이딩 윈도우
         for (int i = P; i < S; i++){ //P = 현재 부분배열의 크기, S = 전체 배열의 크기,
             // 현재 부분배열의 크기 인덱스에서 오른쪽으로 한칸씩 가겠다는 의미
-            int j = i-P; // j = 맨 왼쪽, i = 맨 오른쪽
+            int j = i-P; // j = 맨 왼쪽, i = 맨 오른쪽 (맨 오른쪽 인덱스에서 배열길이만큼 빼면 왼쪽 인덱스값)
             Add(A[i]); // 맨 오른쪽값 추가
             Remove(A[j]); // 맨 왼쪽값 제거
             // 한번 이동을 할때마다 값이 같은지 확인

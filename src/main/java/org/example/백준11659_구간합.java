@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class NO3_구간합구하기 {
+public class 백준11659_구간합 {
     public static void main(String[] args) throws IOException {
         BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 
@@ -17,6 +17,7 @@ public class NO3_구간합구하기 {
 
         stringTokenizer = new StringTokenizer(buff.readLine()); // 다음 줄에 구간 값들이 주어지므로 다시 읽어야 함
         for (int i = 1; i <= a; i++) {
+            // 값을 받자마자 전의 합에다가 더해준다.
             s[i] = s[i - 1] + Integer.parseInt(stringTokenizer.nextToken()); // 합배열 구성
         }
 
