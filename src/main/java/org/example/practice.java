@@ -1,31 +1,29 @@
 package org.example;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.Stack;
+
 public class practice {
-    static int count;
-    static int[] student = {0,1,0,0,1,1,0};
-    static int k =2;
     public static void main(String[] args) {
-        int window_sum = 0;
-
-        for (int i = 0; i < student.length; i++){
-            window_sum += student[i]; // 윈도우 초기값
-            if (window_sum == k) count++;
-            sliding_window(window_sum, i+1);
-        }
-        System.out.println(count);
-    }
-
-    private static void sliding_window(int windowSum, int windowSize) {// i는 윈도우 크기
-            // 슬라이딩 윈도우
-            for (int j = windowSize; j < student.length; j++){
-                int s = j-windowSize; //s = 왼쪽 인덱스, j = 오른쪽인덱스
-                windowSum += student[j] - student[s];
-                if (windowSum == k) count++;
+        int[] arr = {1,1,3,3,0,1,1};
+        Stack<Integer> stack = new Stack<>();
+        stack.push(arr[0]);
+        int[] answer = {};
+        for (int i = 1; i < arr.length; i++){
+            //같으면 패스
+            //서로 다르면 stack 에 push
+            int now = arr[i];
+            if (stack.peek() != now){
+                stack.push(now);
             }
+        }
+        answer = new int[stack.size()];
+        for (int j = stack.size()-1; j >= 0; j--){
+            answer[j] = stack.pop();
+            System.out.println(answer[j]);
+        }
     }
 }
 
-//student k result
-//[0,1,0,0] 1 6
-//[0,1,0,0,1,1,0] 2 8
-//[0,1,0] 2 0
