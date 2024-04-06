@@ -1,6 +1,6 @@
 package org.example;
 
-public class 백준_DFS_타겟넘버 {
+public class 프로그래머스_DFS_타겟넘버 {
     static int answer;
     static int[] numbers = {1, 1, 1, 1, 1};
     static int target = 3;
