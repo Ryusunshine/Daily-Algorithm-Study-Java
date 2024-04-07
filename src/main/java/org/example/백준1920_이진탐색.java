@@ -17,8 +17,8 @@ public class 백준1920_이진탐색 {
         for (int i = 0; i <m; i++){
             boolean find = false;
             int target = sc.nextInt();
-            int start = 0;
-            int end = A.length-1;
+            int start = 0; // 맨 왼쪽(왼쪽 인덱스)
+            int end = A.length-1; //맨 오른쪽(마지막 인덱스)
             while (start <= end) {
                 int mid_index = (start + end) / 2;
                 int mid_value = A[mid_index];

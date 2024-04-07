@@ -61,7 +61,6 @@ public class 다익스트라 {
 
                 if(visited[now]) continue;
                 visited[now] = true;
-
                 //index의 연결된 정점 비교
                 for(Node next : graph[now]) {
                     if(dist[next.index] > dist[now]+ next.cost) {
