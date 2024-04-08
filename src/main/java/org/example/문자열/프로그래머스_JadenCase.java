@@ -1,4 +1,4 @@
-package org.example;
+package org.example.문자열;
 
 public class 프로그래머스_JadenCase {
     public String main(String s) {

@@ -26,6 +26,7 @@ public class 자바9375_해시 {
                 answer *= val+1;
             }
             System.out.println(answer - 1);
+
         }
     }
 }

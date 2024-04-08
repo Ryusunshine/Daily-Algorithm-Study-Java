@@ -54,6 +54,6 @@ public class 프로그래머스_해시_신고결과받기 {
         for (int i = 0; i < id_list.length; i++){
             answer[i] = reporterHash.getOrDefault(id_list[i], 0);
         }
-        return answer;
+//        return answer;
     }
 }
