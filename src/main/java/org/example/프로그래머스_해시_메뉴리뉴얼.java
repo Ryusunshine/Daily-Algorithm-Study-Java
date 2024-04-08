@@ -60,6 +60,7 @@ public class 프로그래머스_해시_메뉴리뉴얼 {
             // 남아있는 알파벳 기준으로 돌면서 조합
             for (int i = 0; i < left.length(); i++){
                 //남은애들중에서 i번째 알파벳을 뽑아서 붙여준다.
+                // now+left.charAt(i) !!!!중요!!! STRING에서 알파벳만 가져오는것
                 combination(now+left.charAt(i), left.substring(i+1), count-1);
             }
 

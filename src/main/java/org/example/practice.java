@@ -1,60 +1,74 @@
-package org.example;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.*;
 
-public class practice {
-    static ArrayList<Integer>[] graph;
-    static Queue<Integer> q = new LinkedList<>();
-    public static void main(String[] args) throws IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        for (int i = 0; i < n; i++){
-            String[] s = br.readLine().split(" ");
-            int v = Integer.parseInt(s[0]);
-            int e = Integer.parseInt(s[1]);
-            graph = new ArrayList[v+1];
-            for (int j = 1; j < v+1; j++){
-                graph[j] = new ArrayList<>();
+
+public class Solution {
+    static int N;
+    static int[][] road;
+    static int K;
+
+    static int[] dist;
+    public static void main(String[] args) {
+        ArrayList<Node>[] graph = new ArrayList[N+1];
+
+        for (int i=0; i<N; i++){
+            graph[i] = new ArrayList<>();
+        }
+
+        for (int j = 0; j < N+1; j++){
+            int start = road[j][0];
+            int end= road[j][1];
+            int cost = road[j][2];
+            graph[start].add(new Node(end, cost));
+        }
+
+        dijkstra(N, 1, graph);
+        int cnt = 0;
+        for (int idx = 1; idx < N+1; idx++){
+            if (dist[idx] <= K){
+                cnt++;
             }
-            for (int a = 0; a < e; a++){
-                s = br.readLine().split(" ");
-                int start = Integer.parseInt(s[0]);
-                int end = Integer.parseInt(s[1]);
-                graph[start].add(end);
-                graph[end].add(start);
-            }
-            int cnt = 0;
-            for(int x = 1; x < v+1; x++){
-                cnt = 0;
-                boolean[] visited = new boolean[v+1];
-                visited[x] = true;
-                for (int next : graph[x]){
-                    if (!visited[next]){
-                        bfs(next, visited);
-                        cnt++;
-                    }
-                }
-            }
-            if (cnt==2) System.out.println("YES");
-            else System.out.println("NO");
+        }
+        return cnt;
+
+
+    }
+
+    public static class Node {
+        int index;
+        int cost;
+
+        public Node(int index, int cost){
+            this.index = index;
+            this.cost = cost;
+        }
+
+        @Override
+        public int compareTo(Node o){
+            return Integer.compare(this.cost, o.cost);
         }
     }
 
-    private static void bfs(int x, boolean[] visited){
-        q.offer(x);
-        visited[x]= true;
-        while (!q.isEmpty()){
-            int now = q.poll();
-            for (int next : graph[now]){
-                if (!visited[next]){
-                    visited[next] = true;
-                    q.offer(next);
+    public static void dijkstra(int n, int start){
+        PriorityQueue<Node> pq = new PriorityQueue<>();
+        boolean[] visited = new boolean[n+1];
+        int[] dist = new int[n+1];
+        int INF = Integer.MAX_VALUE;
+        Arrays.fill(dist, INF);
+        visited[start] = true;
+        dist[start] = 0;
+        pq.add(new Node(start, 0));
+
+        while(!pq.isEmpty()){
+            Node now = pq.poll();
+            if (!visited[now.index]) visited[now.index] = true;
+            for (Node next : graph[now.index]){
+                int cost = dist[now.index] + next.cost;
+                if (dist[next.index] > cost){
+                    dist[next.index] = cost;
+                    pq.offer(new Node(next.index, cost));
                 }
             }
         }
+        Collections.min();
     }
 }
-

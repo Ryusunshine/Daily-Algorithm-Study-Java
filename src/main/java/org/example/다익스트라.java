@@ -26,7 +26,7 @@ public class 다익스트라 {
         /**PriorityQueue<Node> pq = new PriorityQueue<Node>
          ((o1, o2) -> Integer.compare(o1.cost, o2.cost));
          **/
-        @Override
+
         public int compareTo(Node o) {
             return Integer.compare(this.cost, o.cost);
         }
