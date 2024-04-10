@@ -3,6 +3,47 @@
 1. 문제 어떻게 풀어야할지 디테일하게 쓰기
 2. 조건 꼭 쓰기
 ********************************************************************************************************
+모든 문제
+1. 값이 존재하는지, 존재 안하는지 판별
+그리디(체육복 문제 풀기)
+contains(i-1);
+********************************************************************************************************
+소수인지 판별
+
+private static boolean isPrime(int num){
+    // 0과 1은 소수가 아니므로 예외처리
+    if(num == 0 || num == 1) return false;
+
+    // 에라토스테네스의 방식으로 루트값까지 확인
+    int limit = (int)Math.sqrt(num);
+
+    for(int i = 2; i <= limit; i++){
+        if (num % i == 0) return false;
+    }
+
+    return true;
+}
+********************************************************************************************************
+수학 문법
+
+루트값
+(int)Math.sqrt(num);
+
+최소값
+Math.min(num1, num2);
+
+최대값
+Math.max(num1, num2);
+********************************************************************************************************
+Iterator<Integer> it = hashSet.iterator();
+while (it.hasNext()){
+********************************************************************************************************
+재귀
+
+1. 문자열을 재귀함수로 만들때 꼭 빈 스트링에 대한 예외처리해주기!!!!
+
+
+********************************************************************************************************
 List -> 배열
 answerList.stream().mapToInt(n->n).toArray();
 
@@ -25,6 +66,13 @@ list.toArray(result);
 ********************************************************************************************************
 
 //문자열
+
+// 특정 문자열이 존재하는지 확인 & 어디에 존재하는지 찾기
+s.indexOf("..")
+
+// 문자+문자를 더할떄는
+s + charAt(i)
+
 문자열안에 문자열 있는지 확인
 str1.contains(str2)
 
@@ -85,18 +133,6 @@ return answer.stream().mapToInt(n->n).toArray();
 
 // 인덱스 요소로 배열 정렬
 Arrays.sort(arr, Comparator.comparingInt((int[] x) -> x[1]).thenComparingInt(x -> x[0]));
-
-꼭 import java.util.*;
-import java.io.*;
-써주기
-
-//힙
-PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(new Comparator<Integer>() {
-        @Override
-        public int compare(Integer o1, Integer o2) {
-            return - Integer.compare(o1,o2);
-        }
-    });
 
 // 이진탐색
 // 가운데 값이 작은지 큰지 비교한후 start, end 포인트를 가운데 값으로 바꾸는거야
