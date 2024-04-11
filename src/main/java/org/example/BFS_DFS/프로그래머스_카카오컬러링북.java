@@ -1,4 +1,4 @@
-package org.example.BFS;
+package org.example.BFS_DFS;
 
 import java.util.*;
 

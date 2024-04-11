@@ -1,4 +1,4 @@
-package org.example;
+package org.example.BFS_DFS;
 import java.util.*;
 
 public class 프로그래머스_다익스트라_합승택시요금 {

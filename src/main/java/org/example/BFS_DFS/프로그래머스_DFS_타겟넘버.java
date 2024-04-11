@@ -1,4 +1,4 @@
-package org.example;
+package org.example.BFS_DFS;
 
 public class 프로그래머스_DFS_타겟넘버 {
     static int answer;

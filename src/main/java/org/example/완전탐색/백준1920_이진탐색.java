@@ -1,4 +1,4 @@
-package org.example;
+package org.example.완전탐색;
 
 import java.util.Arrays;
 import java.util.Scanner;

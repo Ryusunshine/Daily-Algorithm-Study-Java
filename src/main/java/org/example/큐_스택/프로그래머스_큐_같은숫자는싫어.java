@@ -1,4 +1,4 @@
-package org.example;
+package org.example.큐_스택;
 
 import java.util.ArrayList;
 

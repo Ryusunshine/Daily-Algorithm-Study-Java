@@ -1,4 +1,4 @@
-package org.example;
+package org.example.슬라이딩윈도우;
 
 public class 프로그래머스_슬라이딩윈도우 {
     static int count;
