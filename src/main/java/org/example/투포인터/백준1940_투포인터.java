@@ -1,4 +1,4 @@
-package org.example;
+package org.example.투포인터;
 
 import java.io.BufferedReader;
 import java.io.IOException;
