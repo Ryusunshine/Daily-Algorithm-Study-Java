@@ -327,6 +327,12 @@ while (i < j) {
 
 //투포인터2
 // sum 으로 비교해
+
+외울거!!!!
+
+// while - if
+//while (end != 마지막 인덱스)
+
 int count = 1;
 int sum = 1;  // sum  초기세팅 하는거 중요해!!!
 int start_index = 1;
