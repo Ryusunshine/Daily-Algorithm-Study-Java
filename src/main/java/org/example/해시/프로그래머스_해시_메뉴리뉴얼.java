@@ -18,10 +18,11 @@ public class 프로그래머스_해시_메뉴리뉴얼 {
             }
             hashMap = new HashMap<>();
             // 2. course 길이 기준으로 orders에 있는 string배열 돌면서 알파벳 조합 만들기
-            for (int courseLen : course){
-                for (String order : orders){
+            for (int courseLen : course){ //[2, 3, 4]
+                for (String order : orders){ // ['ABCDE', 'ACDE', 'ABC']
                     combination("", order, courseLen); // 만든 조합은 hashMap에 담아져있음.
                 }
+                // 2길이로 자름
                 // course 길이 기준으로 모든 course 배열 한바퀴를 돌았으면, max 값 찾아서 배열에 담기
                 if (!hashMap.isEmpty()){
                     int max = Collections.max(hashMap.values());
