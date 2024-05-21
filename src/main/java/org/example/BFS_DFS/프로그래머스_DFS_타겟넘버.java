@@ -21,4 +21,26 @@ public class 프로그래머스_DFS_타겟넘버 {
         dfs(numbers, target, now+numbers[depth], depth+1);
         dfs(numbers, target, now-numbers[depth], depth+1);
     }
+
+    class Solution {
+        static int answer;
+        public int solution(int[] numbers, int target) {
+            answer = 0;
+            dfs(0, target, 0, numbers);
+            return answer;
+        }
+
+        public static void dfs(int now, int target, int depth, int[] numbers){
+            if (depth == numbers.length){
+                if (now == target){
+                    answer++;
+                    return ;
+                } else {
+                    return ;
+                }
+            }
+            dfs(now + numbers[depth], target, depth+1, numbers);
+            dfs(now - numbers[depth], target, depth+1, numbers);
+        }
+    }
 }
