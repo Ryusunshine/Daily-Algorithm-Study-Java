@@ -4,8 +4,6 @@
 2. 문제 어떻게 풀어야할지 디테일하게 쓰기
 3. 조건 꼭 쓰기
 ********************************************************************************************************
-모든 문제
-
 문자열 일치하는지 확인하기위해서는 .equals 써야해!!!!
 
 String에서 하나의 문자를 가져올려면 substring 써야해!!!
@@ -18,6 +16,13 @@ Arrays.sort(intArr, Collections.reverseOrder()); // 내림차순 정렬
 
 Arrays.sort(intArr); // 오름차순 정렬
 
+// 글자를 알파벳순으로 정렬하기 위한 방법
+for (int i = 0; i < orders.length; i++) {
+    char[] arr = orders[i].toCharArray(); // 알파벳 담는 배열 만든후, x, y, z 넣어서 알파벳순으로 정렬
+    Arrays.sort(arr);
+    orders[i] = String.valueOf(arr);
+}
+
 //int 배열을 List 타입으로 변환
 List<Integer> intList = Arrays.asList(intArr);
 
@@ -26,6 +31,24 @@ s.length - 1 - i
 
 // 리스트에서 특정 문자열 찾기
 int x = Arrays.asList(seoul).indexOf("Kim");
+
+// 모든 경우의 수를 탐색해야한다면 DFS 사용
+// 최단거리, 최소비용 등 가장 적은 횟수로 답을 찾아내야하는 경우에는 BFS 사용
+
+combination(now+left.charAt(i), left.substring(i+1), courseLen-1);
+
+Collections.max(hash.values)
+
+// 리스트를 배열로
+String[] answer = list.toArray(String[]::new);
+
+// 리스트 정렬
+Collections.sort(리스트)
+// 배열 정렬
+Arrays.sort(배열)
+
+항상 hashMap 다룰때는 hashMap.isEmpty() 인지 확인!!
+
 ********************************************************************************************************
 소수인지 판별
 

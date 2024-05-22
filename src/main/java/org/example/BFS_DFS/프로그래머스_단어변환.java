@@ -19,12 +19,10 @@ public class 프로그래머스_단어변환 {
             }
 
             for (int i = 0; i < words.length; i++) {
-                if (visited[i]) { // 계속 돌면 안되니깐 이미 방문한 인덱스인지 확인
-                    continue;
-                }
+                if (visited[i]) continue; //게속 돌면 안되니깐 이미 방문한 단어 인덱스는 패스
 
                 int k = 0;
-                for (int j = 0; j < begin.length(); j++) {
+                for (int j = 0; j < begin.length(); j++) { // 알파벳끼리 확인
                     if (begin.charAt(j) == words[i].charAt(j)) {
                         k++;
                     }
