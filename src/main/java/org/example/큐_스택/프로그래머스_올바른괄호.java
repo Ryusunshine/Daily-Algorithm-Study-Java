@@ -16,7 +16,7 @@ public class 프로그래머스_올바른괄호 {
                 if (left < right) return false;
             }
             if (left == right) return true;
-            else return false;
+            else return false; // 이 부분 안쓰면 오류남
         }
     }
 }

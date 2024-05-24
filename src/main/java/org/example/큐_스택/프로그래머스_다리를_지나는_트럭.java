@@ -12,7 +12,7 @@ public class 프로그래머스_다리를_지나는_트럭 {
             int time = 0; //다리를 건너는 시간
 
             for(int truck : truck_weights) {
-                while(true) {
+                while(true) { // break 문 걸리면 while 문 빠져나옴
                     if(bridge.isEmpty()) { //큐(다리)에 아무것도 없는 경우
                         bridge.add(truck); //큐(다리)에 트럭 추가
                         sum += truck; // 다리 위에 트럭 무게 추가
@@ -21,14 +21,15 @@ public class 프로그래머스_다리를_지나는_트럭 {
                     } else if(bridge.size() == bridge_length) { //큐(다리)가 가득 찬 경우
                         // 다리에서 나올떄는 시간이 필요하지 않으므로 시간은 안 더해줘도 됨
                         sum -= bridge.poll(); //다리의 맨 앞 트럭 빼기
-                    } else { //큐(다리)가 가득 차지 않은 경우 (다리가 가득찬경우는 처리했고 이제는 무게를 고려해야함)
+                    } else { //큐(다리)가 가득 차지 않은 경우 (이제는 무게를 고려해야함)
                         if(sum+truck <= weight) {
                             bridge.add(truck); //큐에 트럭 추가
                             sum += truck;
                             time++;
                             break;
                         } else { // 무게 초과하는 경우
-                            bridge.add(0); //다음 트럭이 올라올 수 없는 경우 0을 넣어서 앞의 트럭이 건너도록 한다
+                            bridge.add(0);
+                            //다음 트럭이 올라올 수 없는 경우 0을 넣어서 bridge.size()== bridge_length() 조건문에 걸려서 앞에 있는 truck을 건너게 한다.
                             time++;
                         }
                     }
