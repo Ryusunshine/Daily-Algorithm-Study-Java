@@ -248,7 +248,7 @@ private static void bfs(int i, int j) {
         for (int d = 0; d < 4; d++) {
             int nx = x + dx[d];
             int ny = y + dy[d];
-            if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
+            if (nx >= 0 &&   ny >= 0 && nx < n && ny < m) {
                 if (graph[nx][ny] == 1 && !visited[nx][ny]) {
                     visited[nx][ny] = true;
                     graph[nx][ny] = graph[x][y] + 1; // 이전 위치의 거리 + 1
