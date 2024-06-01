@@ -17,7 +17,6 @@ public class 프로그래머스_의상 {
             for (int val : hash.values()) {
                 answer *= val + 1;  // 조합 -> 안입는 경우도 고려하기 위해 + 1
             }
-
             answer -= 1; // 모두 '안입음'일 경우 -1 해주기
 
             return answer;
