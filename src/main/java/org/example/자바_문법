@@ -13,6 +13,8 @@ while (progresses.length > 0 && progresses[0] >= 100){
 항상 hashMap 다룰때는 hashMap.isEmpty() 인지 확인!!
 
 ********************************************************************************************************
+// 인덱스 요소로 배열 정렬
+Arrays.sort(arr, Comparator.comparingInt((int[] x) -> x[1]).thenComparingInt(x -> x[0]));
 
 문자열 일치하는지 확인하기위해서는 .equals 써야해!!!!
 
@@ -227,7 +229,7 @@ for (int i = P; i < S; i++){ // i = 시작인덱스(현재부분배열의 오른
 //버블 정렬
 //정렬된 값은 오른쪽에 고정. 따라서 j는 이미 정렬된 i 전까지만 루프돌면된다.
 for (int i = 0; i < N-1; i++) { //루프 도는횟수는 전체 배열의 개수의 -1
-    for (int j = 0; j < N-1-i; j++){
+    for (int j = i+1; j < N-1-i; j++){
         if (A[j] > A[j+1]) {
             int temp = A[j];
             A[j] = A[j+1];
@@ -261,7 +263,7 @@ private static void bfs(int i, int j) {
 }
 
 // BFS - 1차원(노드)
-static boolean visited[];
+static boolean visited[]; // 1차원이니깐 배열이 1차배열
 static Queue<Integer> que = new LinkedList<>();
 
 public int solution(int n, int[][] computers) {
@@ -328,7 +330,7 @@ private static int[] removeElement(int[] arr) {
 
   // 1부터 시작하면서 차례대로 배열에 담음
   for (int i = 1; i < arr.length; i++) {
-      newArr[i - 1] = arr[i];
+      newArr[i - 1] = arr[i]; // newArr[i-1] 이 중요햄!!!
   }
 
   return newArr;
@@ -355,12 +357,13 @@ while (i < j) {
     else if (A[i] + A[j] > M) j--; // 합이 크면 오른쪽 인덱스 감소
     else {
         count ++;
-        i ++;
+        i ++; // 오른쪽 왼쪽 인덱스 하나씩 이동
         j --;
     }
 }
 
 //투포인터2
+// start, end_index 가 1 부터 시작
 // sum 으로 비교해
 
 외울거!!!!
@@ -547,12 +550,12 @@ public class Main {
 
 Sorting
 
-자바에서 정렬하는 방법은 여러 개가 있는데, Stream에도 있습니다. 먼저, 인자 없이 그냥 호출할 경우 오름차순 정렬을 해줍니다.
+자바에서 정렬(int[] -> List)하는경방법은 여러 개가 있는데, Stream에도 있습니다. 먼저, 인자 없이 그냥 호출할 경우 오름차순 정렬을 해줍니다.
 
 IntStream.of(14, 11, 20, 39, 23)
-  .sorted()
-  .boxed()
-  .collect(Collectors.toList());
+  .sorted() //sorted 먼저하고
+  .boxed() // box에 넣고
+  .collect(Collectors.toList()); // 리스트로 변
 // [11, 14, 20, 23, 39]
 
 역순으로 정렬하고 싶으면 다음과 같이 해줍니다.
