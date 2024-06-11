@@ -192,7 +192,6 @@ return answer.stream().mapToInt(n->n).toArray();
 Arrays.sort(arr, Comparator.comparingInt((int[] x) -> x[1]).thenComparingInt(x -> x[0]));
 
 // 이진탐색
-
 // 가운데 값이 작은지 큰지 비교한후 start, end 포인트를 가운데 값으로 바꾸기
 for (int i = 0; i <m; i++){
     boolean find = false;
