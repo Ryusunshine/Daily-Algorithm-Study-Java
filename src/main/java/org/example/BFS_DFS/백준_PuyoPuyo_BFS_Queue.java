@@ -143,6 +143,5 @@ public class 백준_PuyoPuyo_BFS_Queue {
                 this.color = color;
             }
         }
-
     }
 }
