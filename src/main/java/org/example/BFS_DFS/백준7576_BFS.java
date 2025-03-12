@@ -34,9 +34,9 @@ public class 백준7576_BFS {
         int max = 0;
         boolean fail = false;
         for (int i = 0; i< n; i++){
-            for (int j = 0; j<m; j++){
+            for (int j = 0; j<m; j++){ // 전체 다 돌면서
                 int num = graph[i][j];
-                if (num == 0){
+                if (num == 0){ // 익지 않은 토마토(0) 가 있으면 fail
                     fail = true;
                 }
                 max= Math.max(max, num);
