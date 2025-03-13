@@ -12,6 +12,8 @@ public class 프로그래머스_귤고르기 {
             HashMap<Integer, Integer> hashMap = new HashMap<>();
             for (int i: tangerine){
                 hashMap.put(i, hashMap.getOrDefault(i, 0)+1);
+                //hashMap.put(key, value)
+                // value에 hashMap.getOrDefault(i라는 키값이 없으면 0으로 세팅한다) + 1);
             }
             ArrayList<Integer> valueList = new ArrayList<>();
             for (int j: hashMap.values()){
