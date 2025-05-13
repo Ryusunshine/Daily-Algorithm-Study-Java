@@ -32,18 +32,18 @@ public class 백준7576_BFS {
 
         bfs();
         int max = 0;
-        boolean fail = false;
-        for (int i = 0; i< n; i++){
-            for (int j = 0; j<m; j++){ // 전체 다 돌면서
-                int num = graph[i][j];
-                if (num == 0){ // 익지 않은 토마토(0) 가 있으면 fail
-                    fail = true;
+        boolean flag = false;
+
+        for (int[] row : graph) {
+            for (int tomato : row) {
+                if (tomato == 0) {
+                    flag = true;
                 }
-                max= Math.max(max, num);
+                max = Math.max(max, tomato);
             }
         }
-        if (fail) System.out.println(-1);
-        else System.out.println(max-1);
+
+        System.out.println(flag ? -1 : max - 1);
     }
 
 

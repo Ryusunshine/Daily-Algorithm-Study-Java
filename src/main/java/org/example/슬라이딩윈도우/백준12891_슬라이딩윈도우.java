@@ -26,8 +26,9 @@ public class  백준12891_슬라이딩윈도우 {
             if (checkArr[i]== 0) checkSame++; // 만약 알파벳 개수가 0 이라면 checkSame +1
         }
         for (int i = 0; i<P; i++){ // 부분 문자열 돌면서 현재 알파벳 개수 세기
-            Add(A[i]);
+            Add(A[i]); // 초기화
         }
+
         if (checkSame == 4) result++; //처음 받은 부분 문자열이 정답이면 result + 1
 
         //슬라이딩 윈도우
