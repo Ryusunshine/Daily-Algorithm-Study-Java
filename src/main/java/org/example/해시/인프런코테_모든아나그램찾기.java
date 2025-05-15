@@ -29,6 +29,7 @@ public class 인프런코테_모든아나그램찾기 {
 
         // 슬라이딩 윈도우 이동
         for (int i = tLen; i < sLen; i++) {
+            // rt, lt 포인터 설정
             char newChar = s.charAt(i); // 추가되는 문자
             char oldChar = s.charAt(i - tLen); // 제거되는 문자
 
