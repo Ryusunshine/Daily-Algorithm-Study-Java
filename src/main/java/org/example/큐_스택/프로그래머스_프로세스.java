@@ -49,11 +49,13 @@ public class 프로그래머스_프로세스 {
                 pq.add(num);
             }
             while(!pq.isEmpty()) {
-                for(int i=0; i<priorities.length; i++) {
+                // pq가 빌때까지 계속 돌거야
+                // 즉 pq에 들어있는 숫자들이 priorities에 순서에 맞을때 pop하니깐 그때동안 계속 도는거야
+                for(int i=0; i < priorities.length; i++) {
                     if(priorities[i] == pq.peek()) {
-                        pq.poll();
+                        pq.poll(); // 같으면 pq에서 빼주기
                         answer++;
-                        if(i == location)
+                        if(i == location) // location은 몇번째를 구해야하는지에 대한 수야!(문제에서 인덱스역할을 하는거야)
                             return answer;
                     }
                 }

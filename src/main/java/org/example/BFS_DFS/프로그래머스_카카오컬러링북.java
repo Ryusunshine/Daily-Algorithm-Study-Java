@@ -52,5 +52,57 @@ public class 프로그래머스_카카오컬러링북 {
 
         }
     }
-
 }
+
+// 풀이 2
+//class Solution2 {
+//    static int[] dx = {1, 0, -1, 0};
+//    static int[] dy = {0, -1, 0, 1};
+//    static Queue<int[]> q;
+//    static int max_num;
+//    static int total_cnt;
+//
+//    public int[] solution(int m, int n, int[][] picture) {
+//        max_num = 0;
+//        total_cnt = 0;
+//        for (int i = 0; i < m; i++) {
+//            for (int j = 0; j < n; j++) {
+//                if (picture[i][j] != 0) {
+//                    bfs(i, j, picture, m, n);
+//                    total_cnt++;
+//                }
+//            }
+//        }
+//        return new int[]{total_cnt, max_num};
+//    }
+//
+//    public void bfs(int a, int b, int[][] picture, int m, int n) {
+//        q = new LinkedList<>();
+//        q.offer(new int[]{a, b});
+//        int cnt = 1;
+//        int num = picture[a][b];
+//        picture[a][b] = 0;
+//
+//        while (!q.isEmpty()) {
+//            int[] now = q.poll();
+//            int x = now[0];
+//            int y = now[1];
+//
+//            for (int i = 0; i < 4; i++) {
+//                int nx = dx[i] + x;
+//                int ny = dy[i] + y;
+//
+//                if (nx >= 0 && ny >= 0 && nx < m && ny < n) {
+//                    if (picture[nx][ny] == num) {
+//                        cnt++;
+//                        q.offer(new int[]{nx, ny});
+//                        picture[nx][ny] = 0;
+//                    }
+//                }
+//            }
+//        }
+//        if (cnt > max_num) {
+//            max_num = cnt;
+//        }
+//    }
+//}
