@@ -31,6 +31,7 @@ public class 프로그래머스_해시_신고결과받기 {
             String[] arr = rep.split(" ");
             String reportee = arr[0]; // 신고 당한 사람
             String reporter = arr[1]; // 신고한 사람
+            // 신고당한 사람이 Key, 신고한 사람을 arrayList<> 타입의 value
             ArrayList<String> reporterList = notifyListHash.getOrDefault(reportee, null);
             // Null값이 가져오는것은 신고당한적이 없다는것을 의미
             if (reporterList == null) reporterList = new ArrayList<>();
@@ -40,7 +41,7 @@ public class 프로그래머스_해시_신고결과받기 {
         }
 
         // notifyList 기반으로 ReporterHash 만들기
-       //결과값으로 유저가 신고해서 정지된 사람 리스트개수를 반환해야함
+        // 신고당한 사람(key)의 신고한 사람의 리스트(value)가 k 이상이면
         HashMap<String, Integer> reporterHash = new HashMap<>();
         for (ArrayList<String> notifier : notifyListHash.values()){
             if (notifier.size() >= k){
